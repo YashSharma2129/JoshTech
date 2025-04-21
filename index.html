@@ -17,23 +17,35 @@
     />
   </head>
   <body>
+    <div class="overlay"></div>
     <div class="container">
       <header>
         <nav class="navbar">
+          <div class="logo">
+            <h2>FIGMA LAND</h2>
+          </div>
           <ul class="nav-menu">
             <li><a href="#">Home</a></li>
             <li><a href="#">Product</a></li>
             <li><a href="#">Pricing</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
+            <!-- Mobile social icons -->
+            <div class="social-icons-mobile">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
           </ul>
-          <div class="logo">
-            <h2>FIGMA LAND</h2>
-          </div>
           <div class="social-icons">
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </nav>
       </header>
@@ -661,7 +673,7 @@
                 ></path>
               </svg>
             </a>
-          </div>
+          </div> 
         </div>
       </div>
     </footer>
@@ -745,5 +757,8 @@
         }
       });
     </script>
+
+    <!-- Script for responsive navigation -->
+    <script src="js/responsive.js"></script>
   </body>
 </html>
