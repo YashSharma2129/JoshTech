@@ -31,13 +31,6 @@ body {
   transition: all 0.3s ease;
 }
 
-.navbar.scrolled {
-  position: fixed;
-  background-color: rgba(24, 24, 24, 0.95);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  padding: 15px 80px;
-}
-
 .nav-menu {
   display: flex;
   list-style: none;
@@ -136,10 +129,48 @@ body {
   opacity: 1;
 }
 
-/* Mobile logo positioning adjustments */
+/* Mobile Navigation Styles */
 @media screen and (max-width: 768px) {
   .navbar {
-    justify-content: space-between; /* Revert to space-between for mobile */
+    padding: 15px 20px;
+    justify-content: space-between; /* Better spacing for mobile */
+  }
+  
+  .hamburger {
+    display: block; /* Make hamburger visible on mobile */
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: #252B42;
+    flex-direction: column;
+    padding: 80px 0 30px;
+    z-index: 20;
+    transition: right 0.3s ease;
+    margin-right: 0;
+  }
+  
+  .nav-menu.active {
+    right: 0;
+  }
+  
+  .nav-menu li {
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .social-icons {
+    display: none; /* Hide desktop social icons on mobile */
+  }
+  
+  .social-icons-mobile {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
   }
   
   .logo.mobile-active {
@@ -155,21 +186,75 @@ body {
     margin: 0;
   }
   
-  .logo-text {
-    font-size: 18px;
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 15;
   }
   
-  .logo-rectangle {
-    left: 12px;
-    top: 9px; /* Adjusted for mobile view */
-    width: 16px;
-    height: 16px;
+  .overlay.active {
+    display: block;
   }
   
-  .logo-triangle {
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 16px solid #2091F9;
+  body.menu-open {
+    overflow: hidden;
+  }
+}
+
+/* Fix for Navigation in smaller screens */
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 15px 10px;
+  }
+  
+  .nav-menu {
+    width: 80%; /* Increase menu width for very small screens */
+  }
+  
+  .hamburger {
+    margin-right: 0;
+  }
+}
+
+/* Add hamburger button styles if not already defined */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  width: 30px;
+  height: 20px;
+  position: relative;
+  z-index: 30;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
   }
 }
 
@@ -244,6 +329,9 @@ body {
   max-width: 500px; /* Increase max width for better readability */
   padding: 20px; /* Add padding inside the text container */
   text-align: left; /* Ensure text is aligned to the left */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the left */
 }
 
 .content h1 {
@@ -260,22 +348,9 @@ body {
   margin-bottom: 32px;
 }
 
-.cta-button {
-  display: inline-block;
-  background-color: #2196f3;
-  color: white;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 12px 32px;
-  border-radius: 50px;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #0d8bf2;
+.content .cta-button {
+  align-self: flex-start; /* Position the button on the left */
+  margin-left: 25px; /* Add some margin to move it slightly right */
 }
 
 .laptop-image {
@@ -297,10 +372,12 @@ body {
   .content {
     max-width: 100%; /* Allow text to take full width */
     padding: 0; /* Remove extra padding */
+    align-items: center; /* Center items on mobile */
   }
 
   .laptop-image {
     max-width: 90%; /* Adjust image size for smaller screens */
+    margin: 0 auto; /* Center the image */
   }
 }
 
@@ -420,20 +497,50 @@ h2 {
     margin-bottom: 30px;
   }
 
-  .content {
+  .content2 {
     width: 100%;
-    padding-left: 0;
+    padding-left: 0; /* Remove left padding on mobile */
+    text-align: center; /* Center text on mobile */
+  }
+
+  .content .cta-button {
+    align-self: center; /* Center the button on mobile */
+    margin-left: 0; /* Remove left margin on mobile */
   }
 
   .subscription-form {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center; /* Center form elements */
+    width: 100%;
+  }
+
+  .email-input {
+    max-width: 100%; /* Full width on mobile */
+    margin-bottom: 12px; /* Add spacing between input and button */
   }
 
   .subscribe-button {
     margin-left: 0;
-    margin-top: 12px;
+    margin-top: 0;
+    width: auto; /* Allow the button to size naturally */
+  }
+
+  .container2 {
+    flex-direction: column; /* Stack the text and image vertically */
     text-align: center;
+    padding: 20px; /* Adjust padding for smaller screens */
+    gap: 20px; /* Reduce spacing between text and image */
+  }
+
+  .content {
+    max-width: 100%; /* Allow text to take full width */
+    padding: 0; /* Remove extra padding */
+    align-items: center; /* Center items on mobile */
+  }
+
+  .laptop-image {
+    max-width: 90%; /* Adjust image size for smaller screens */
+    margin: 0 auto; /* Center the image */
   }
 }
 
@@ -552,6 +659,64 @@ h2 {
 
 .cta-button-partner:hover {
   background-color: #1976d2;
+}
+
+/* Add responsive styles for Partners section */
+@media screen and (max-width: 992px) {
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .partner-card, .partner-card-dropbox, .partner-card-amazon-1 {
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .partners-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .partner-card, .partner-card-dropbox, .partner-card-amazon-1 {
+    max-width: 280px;
+    height: auto;
+    margin: 0 auto;
+    padding: 15px;
+  }
+  
+  .partner-logo, .partner-logo-uber {
+    max-width: 70%;
+    max-height: 45px;
+  }
+  
+  .partner-label {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+  
+  .container-partner {
+    padding: 15px;
+  }
+  
+  .partner-heading {
+    font-size: 28px;
+  }
+  
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  
+  .cta-button-partner {
+    padding: 10px 25px;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+  
+  .logo h1 {
+    font-size: 20px;
+  }
 }
 
 /* Testimonial Section */
@@ -1186,13 +1351,6 @@ h1 {
   
   .slate-footer-social {
     justify-content: center;
-  }
-  
-  /* Navigation changes when scrolled */
-  .navbar.scrolled {
-    background-color: rgba(24, 24, 24, 0.95);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    padding: 10px 20px;
   }
   
   /* Video container adjustments */
