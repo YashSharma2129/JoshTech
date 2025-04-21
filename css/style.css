@@ -1141,98 +1141,398 @@ max-width: fit-content;
   }
 }
 
+/* Additional Responsive Styles */
 
-/* Footer Section */
+/* Social icons in mobile menu */
+.social-icons-mobile {
+  display: none;
+  margin-top: 30px;
+  justify-content: center;
+}
 
-  .slate-footer-section {
-            background-color: #1e2a47;
-            color: white;
-            padding: 60px 0;
-            padding-left: 50px;
-            padding-right: 50px;
-        }
-        
-        .slate-footer-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        
-        .slate-footer-column {
-            margin-bottom: 30px;
-            min-width: 200px;
-        }
-        
-        .slate-footer-heading {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 24px;
-        }
-        
-        .slate-footer-links {
-            list-style: none;
-        }
-        
-        .slate-footer-links li {
-            margin-bottom: 16px;
-        }
-        
-        .slate-footer-link {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .slate-footer-link:hover {
-            color: #bbb;
-        }
-        
-        .slate-footer-contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-        
-        .slate-footer-icon {
-            margin-right: 15px;
-        }
-        
-        .slate-footer-icon svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
-        
-        .slate-footer-social {
-            margin-top: 30px;
-            display: flex;
-        }
-        
-        .slate-footer-social-link {
-            margin-right: 24px;
-            color: white;
-        }
-        
-        .slate-footer-social-link:hover {
-            color: #bbb;
-        }
-        
-        .slate-footer-social-link svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .slate-footer-container {
-                flex-direction: column;
-            }
-            
-            .slate-footer-column {
-                width: 100%;
-                margin-bottom: 40px;
-            }
-        }
+/* Footer Styles */
+.slate-footer-section {
+  background-color: #252B42;
+  color: #fff;
+  padding: 60px 0 40px;
+}
+
+.slate-footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.slate-footer-column {
+  flex: 1 1 200px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+
+.slate-footer-heading {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.slate-footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.slate-footer-link {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.8;
+  margin-bottom: 12px;
+  transition: opacity 0.3s;
+}
+
+.slate-footer-link:hover {
+  opacity: 1;
+}
+
+.slate-footer-contact {
+  margin-bottom: 20px;
+}
+
+.slate-footer-contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.slate-footer-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slate-footer-icon svg {
+  fill: #fff;
+  width: 20px;
+  height: 20px;
+}
+
+.slate-footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.slate-footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.slate-footer-social-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.slate-footer-social-link svg {
+  width: 16px;
+  height: 16px;
+  fill: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .social-icons-mobile {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .social-icons-mobile a {
+    color: white;
+    font-size: 20px;
+    opacity: 0.8;
+  }
+  
+  .social-icons-mobile a:hover {
+    opacity: 1;
+  }
+  
+  /* Footer responsive styles */
+  .slate-footer-container {
+    flex-direction: column;
+  }
+  
+  .slate-footer-column {
+    margin-right: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .slate-footer-social {
+    justify-content: center;
+  }
+  
+  /* Navigation changes when scrolled */
+  .navbar.scrolled {
+    background-color: rgba(24, 24, 24, 0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+  }
+  
+  /* Video container adjustments */
+  .video-container {
+    max-width: 100%;
+    margin: 0 15px 20px;
+  }
+  
+  /* Make images responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Adjust input fields for better mobile experience */
+  input, textarea, button {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+  
+  /* Make sure form elements don't overflow */
+  .slate-contact-form input,
+  .slate-contact-form textarea,
+  .subscription-form,
+  .email-input,
+  .subscribe-button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .subscription-form {
+    flex-direction: column;
+  }
+  
+  .subscribe-button {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+/* Fix for testimonial section on small screens */
+@media screen and (max-width: 480px) {
+  .container-testimonial {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+  
+  .testimonials {
+    height: 220px; /* Increase height for smaller screens */
+  }
+  
+  /* Ensure pricing cards are readable */
+  .pricing-card {
+    padding: 20px 15px;
+  }
+  
+  .pricing-price-number {
+    font-size: 60px;
+  }
+}
+/* Responsive Menu Styles */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Media Queries */
+@media screen and (max-width: 768px) {
+  /* Navigation changes */
+  .navbar {
+    padding: 15px 20px;
+    position: relative;
+  }
+  
+  .hamburger {
+    display: flex;
+    z-index: 20;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    flex-direction: column;
+    background-color: #181818;
+    width: 70%;
+    height: 100vh;
+    z-index: 10;
+    padding-top: 80px;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-menu.active {
+    right: 0;
+  }
+  
+  .nav-menu li {
+    margin: 15px 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .social-icons {
+    display: none;
+  }
+  
+  .logo {
+    font-size: 20px;
+  }
+  
+  /* Hero section adjustments */
+  .hero-content h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
+  
+  .hero-content p {
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+  
+  /* Features section */
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Container2 adjustments - already has responsive styles but enhancing */
+  .container2 {
+    padding: 20px 15px;
+    margin: 40px auto;
+  }
+  
+  /* Newsletter section */
+  .newsletter-section {
+    padding: 40px 15px;
+  }
+  
+  .content2 {
+    width: 100%;
+    padding-left: 0;
+    text-align: center;
+  }
+  
+  .subscription-form {
+    justify-content: center;
+  }
+  
+  /* Partners section */
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  /* Pricing cards */
+  .pricing-cards-wrapper {
+    gap: 20px;
+  }
+  
+  .pricing-card {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .pricing-card-standard {
+    transform: scale(1);
+  }
+  
+  /* Contact section */
+  .slate-contact-content {
+    gap: 30px;
+  }
+}
+
+/* Small phone screens */
+@media screen and (max-width: 480px) {
+  /* Adjust hero section for smallest screens */
+  .hero-content h1 {
+    font-size: 30px;
+  }
+  
+  /* Further reduce partners grid */
+  .partners-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Container adjustments */
+  .container, .container2, .newsletter-section, .container-partner, .container-testimonial {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  /* Testimonials */
+  .testimonial p {
+    font-size: 16px;
+  }
+  
+  /* Footer columns stacking */
+  .slate-footer-column {
+    margin-bottom: 30px;
+    min-width: 100%;
+  }
+}
+
+/* Menu open styles for hamburger */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Overlay when mobile menu is open */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 5;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
