@@ -731,9 +731,9 @@ h2 {
   margin: 0 auto;
 }
 
-h1 {
+.container-testimonial h1 {
   font-size: 36px;
-  color: white;
+  color: #252B42; /* Changed from white to dark color */
   margin-bottom: 40px;
   font-weight: 500;
 }
